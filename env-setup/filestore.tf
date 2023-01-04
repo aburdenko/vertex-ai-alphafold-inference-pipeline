@@ -33,4 +33,9 @@ resource "google_filestore_instance" "filestore_instance" {
         google_service_networking_connection.service_connection 
   ]
 
+    lifecycle {
+    // allow deploy processes to set other tags without generating a diff
+        ignore_changes = all
+    }
+
 }

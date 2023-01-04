@@ -16,6 +16,11 @@ resource "google_compute_network" "network" {
   name                    = var.network_name
   auto_create_subnetworks = "false"
   routing_mode            = "REGIONAL"
+
+  lifecycle {
+        // allow deploy processes to set other tags without generating a diff
+        ignore_changes = all
+    }
 }
 
 resource "google_compute_subnetwork" "subnetwork" {
@@ -24,6 +29,12 @@ resource "google_compute_subnetwork" "subnetwork" {
   network                  = google_compute_network.network.self_link
   ip_cidr_range            = var.subnet_ip_range
   private_ip_google_access = true
+
+  lifecycle {
+    // allow deploy processes to set other tags without generating a diff
+    ignore_changes = all
+  }
+
 }
 
 resource "google_compute_global_address" "private_ip_alloc_service_networking" {
@@ -33,12 +44,23 @@ resource "google_compute_global_address" "private_ip_alloc_service_networking" {
   address       = split("/", var.peering_ip_range)[0] 
   prefix_length = split("/", var.peering_ip_range)[1]
   network       = google_compute_network.network.id
+
+  lifecycle {
+    // allow deploy processes to set other tags without generating a diff
+    ignore_changes = all
+  }
 }
 
 resource "google_service_networking_connection" "service_connection" {
   network                 = google_compute_network.network.id
   service                 = "servicenetworking.googleapis.com"
   reserved_peering_ranges = [google_compute_global_address.private_ip_alloc_service_networking.name]
+
+  lifecycle {
+    // allow deploy processes to set other tags without generating a diff
+    ignore_changes = all
+  }
 }
+
 
 

@@ -54,4 +54,11 @@ resource "google_project_iam_member" "pipeline_sa_role_bindings" {
     for_each = toset(var.pipelines_sa_roles)
     member   = "serviceAccount:${google_service_account.pipelines_sa.email}"
     role     = "roles/${each.value}"
+
+    lifecycle {
+        // allow deploy processes to set other tags without generating a diff
+        ignore_changes = all
+    }
+
+    
 }

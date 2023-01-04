@@ -20,4 +20,9 @@ resource "google_storage_bucket" "artifact_repo" {
     storage_class = "REGIONAL"
     force_destroy = var.force_destroy
     uniform_bucket_level_access = var.uniform_bucket_access
+
+    lifecycle {
+        // allow deploy processes to set other tags without generating a diff
+        ignore_changes = all
+    }
 }
