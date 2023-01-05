@@ -18,7 +18,7 @@ create_project = false
 
 # Prefix for the project ID, if creating new GCP project in RAD Lab deployment using above variable. 
 # GCP Project ID of existing project, if using existing GCP project in RAD Lab deployment using above variable. 
-project_id = "kallogjeri-project-345114"
+project_id = "af2-demo"
 
 # GCP Zone where all the GCP resources will be spun up. 
 zone = "us-central1-a"
@@ -37,6 +37,6 @@ workbench_instance_name = "aburdenko_af_notebook"
 
 filestore_instance_id = "af-cache1"
 
-gcs_bucket_name = "jk-alphafold-db"
+gcs_bucket_name = "alphafold-dbs"
 
-gcs_dbs_path = "gs://jk-alphafold-datasets-archive/v2.2.0"
+gcs_dbs_path = "gs://alphafold_fullblown_on_vertex_pipelines_v23"
