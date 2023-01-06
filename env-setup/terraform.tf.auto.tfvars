@@ -18,7 +18,7 @@ create_project = false
 
 # Prefix for the project ID, if creating new GCP project in RAD Lab deployment using above variable. 
 # GCP Project ID of existing project, if using existing GCP project in RAD Lab deployment using above variable. 
-project_id = "af2-demo"
+project_id = "kallogjeri-project-345114"
 
 # GCP Zone where all the GCP resources will be spun up. 
 zone = "us-central1-a"
@@ -28,7 +28,7 @@ region = "us-central1"
 network_name = "filestore-network"
 
 # Name of the sub-network to be created or if using the existing one.
-subnet_name = "sub-network-name"
+subnet_name = "filestore-network"
 
 # List of Users you would like to give access to the created Notebooks & GCS Bucket apart from the identity created the notebook.
 trusted_users = ["user:aburdenko@kallogjeri.altostrat.com"]
