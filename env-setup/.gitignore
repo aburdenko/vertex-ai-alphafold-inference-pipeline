@@ -1,2 +1,4 @@
 *tfstate*
 .terraform/
+nohup.out
+*-template.yaml
