@@ -20,7 +20,9 @@ filestore_instance_id = "af-cache1"
 
 gcs_bucket_name = "alphafold-dbs"
 
-gcs_dbs_path = "gs://alphafold_fullblown_on_vertex_pipelines_v23"
+#gcs_dbs_path = "gs://alphafold_fullblown_on_vertex_pipelines_v23"
+
+gcs_dbs_path = "gs://alphafold-dbs/alphafold_fullblown_on_vertex_pipelines_v23"
 
 #gcs_dbs_path = "gs://alphafold-dbs"
 
